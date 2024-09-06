@@ -1,0 +1,19 @@
+version: '3'
+services:
+  scripthub:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: scripthub
+    environment:
+      - HOST=0.0.0.0
+      - PORT=9100
+      - BETA_PORT=9101
+      - BASE_URL=http://xxxx.com
+      - BETA_BASE_URL=http://beta.xxxx.com
+    ports:
+      - "9100:9100"
+      - "9101:9101"
+    volumes:
+      - .:/app
+    restart: always
